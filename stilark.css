@@ -86,7 +86,7 @@ h1:hover {
   }
 
   .menu {
-    display: none;
+    display: none !important;
   }
 
   .bakgrunn {
@@ -228,7 +228,7 @@ h1:hover {
    flex-flow: row wrap;
    padding-left: 8vh;
    margin-top: 1.5vh;
-   line-height: 1.7;
+   line-height: 1.6;
  }
 
  .side_drop_option {
@@ -243,6 +243,22 @@ h1:hover {
    text-decoration: underline;
  }
 
+}
+
+/*Navigation bar top */
+
+/*Menu container*/
+.menu{
+  width: 100%;
+  height: 6vh;
+  background-color: #003f51;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  position: sticky;
+  align-content: center;
+  top: 0px;
+  z-index: 1;
 }
 
 .option:not(#active) {
@@ -279,103 +295,47 @@ h1:hover {
   user-select: none;
 }
 
-#dropdownbtn {
-  text-decoration: none;
-  color: #F7F7F7;
-  background-color: #003f51;
-  cursor: pointer;
-}
-
-
-.dropdown_container:hover #dropdownbtn{
-  background-color: #F7F7F7;
-  color: #003f51;
-  cursor: pointer;
-}
-
-#drop_arrow_1 {
+.drop_arrow{
   margin-left: 0.6em;
   transition: transform 0.3s ease;
 }
-
-#drop_arrow_2 {
-  margin-left: 0.6em;
-  transition: transform 0.3s ease;
-}
-
-
 
 .dropdown_container {
   height: 100%;
   position: relative;
 }
 
-.menu_1 {
-  width: 11em;
-  overflow: hidden;
-  transition: 0.5s;
-  height: auto;
-  max-height: 0px;
-  z-index: 1;
-  position: absolute;
-  background-color: #003f51;
-}
-
-.menu_2 {
+.dropMenu {
   width: 10em;
   overflow: hidden;
-  transition: 0.8s;
-  z-index: 1;
+  transition: max-height 0.8s;
   height: auto;
   max-height: 0px;
+  font-size: 2.5vh;
   position: absolute;
   background-color: #003f51;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  box-sizing: border-box;
+}
+
+.optionContainer{
+  padding: 5%
 }
 
 .drop_option {
   position: relative;
-}
-
-#drop_option1 {
   text-decoration: none;
   font-family: Helvetica;
   color: #F7F7F7;
   font-size: 2.3vh;
-  padding: 20px 20px 10px 20px;
+  padding: 8%;
   display: block;
   transition: color 0.3s ease;
 }
 
-#drop_optionMiddle {
-  text-decoration: none;
-  font-family: Helvetica;
-  color: #F7F7F7;
-  font-size: 2.3vh;
-  padding: 10px 20px 10px 20px;
-  display: block;
-  transition: color 0.3s ease;
-}
-
-#drop_option2 {
-  text-decoration: none;
-  font-family: Helvetica;
-  color: #F7F7F7;
-  font-size: 2.3vh;
-  padding: 10px 20px 20px 20px;
-  display: block;
-  transition: color 0.3s ease;
-}
-
-#drop_option1:hover {
-  text-decoration: underline;
-}
-
-
-#drop_optionMiddle:hover {
-  text-decoration: underline;
-}
-
-#drop_option2:hover {
+.drop_option:hover {
   text-decoration: underline;
 }
 
@@ -541,7 +501,7 @@ h1:hover {
 
   #links {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
   }
 
   .insta {
