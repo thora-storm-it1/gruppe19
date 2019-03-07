@@ -8,6 +8,10 @@ var optionContainers = document.getElementsByClassName("optionContainer");
 for(let i=0; i<dropDownMenus.length; i++){
   dropDownMenuContainers[i].onclick = function(){show(i)};
 }
+for(a=0; a<dropDownMenus.length; a++){
+  dropDownMenus[a].style.maxHeight = "0px";
+  dropDownArrows[a].style.transform = "rotate(0deg)";
+}
 
 //Function to display the menu
 function show(e){
