@@ -14,6 +14,40 @@
 
   <body>
 
+    <div class="page_container">
+
+      <div id="side_menu">
+
+        <div id="close" onclick="hideSideMenu(); hideSide_all()">
+        &#9587;
+        </div>
+
+        <div id="side_menu_options">
+          <div class="side_option_container"> <a class="side_option" id="side_active" href="/"> Home </a> </div>
+
+          <div class="side_option_container"> <a class="side_option" onclick="checkSide_1()"> About </a> </div>
+            <div id="side_dropdown_container_1">
+              <a class="side_drop_option"href="/About"> About us </a>
+              <a class="side_drop_option" href="/Members"> Members </a>
+            </div>
+
+          <div class="side_option_container" id="side_documents"> <a class="side_option" href="/Documents"> Documents </a> </div>
+          <div class="side_option_container"> <a class="side_option" href="/Blog"> Blog </a> </div>
+          <div class="side_option_container"> <a class="side_option" href="/Sponsors"> Sponsors </a> </div>
+          <div class="side_option_container"> <a class="side_option" onclick="checkSide_2()"> Links </a> </div>
+            <div id="side_dropdown_container_2">
+              <a class="side_drop_option" href="https://web.trondelagfylke.no/thora-storm-videregaende-skole" target="_blank"> Thora Storm </a>
+              <a class="side_drop_option" href="https://www.ntnu.no/" target="_blank"> NTNU </a>
+              <a class="side_drop_option" href="https://www.narom.no/" target="_blank"> NAROM </a>
+              <a class="side_drop_option" href="https://www.esa.int/ESA" target="_blank"> ESA </a>
+              <a class="side_drop_option" href="https://www.nasa.gov/" target="_blank"> NASA </a>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="content_container">
+
     <script src="script.js"> </script>
 
 
@@ -52,8 +86,10 @@
           </div>
       </div>
 
-      <div class="kvarg"> </div>
+    </div>
 
+    <div id="side_menu_button" onclick="showSideMenu()">
+      &#9776;
     </div>
 
     <div class="bakgrunnn">
@@ -192,6 +228,10 @@
     </div>
 
   </div>
+
+</div>
+
+</div>
 
   </body>
 

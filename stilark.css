@@ -148,16 +148,24 @@ h1:hover {
 
   #side_menu_options {
     width: 100%;
-    height: 50%;
+    height: auto;
+    overflow: hidden;
     display: flex;
-    flex-flow: column;
+    flex-flow: row wrap;
     justify-content: flex-start;
     margin: 8vh 4vh 0px 8vh;
   }
 
-  .side_option_container {
+  .side_option_container:not(#side_documents) {
     margin-top: 3vh;
+    flex-basis: 100%;
   }
+
+  #side_documents {
+    margin-top: 1.5vh;
+  }
+
+
 
   #side_active::after {
     content: "";
@@ -171,7 +179,7 @@ h1:hover {
     width: auto;
     font-family: Helvetica;
     text-decoration: none;
-    font-size: 6vw;
+    font-size: 5vh;
     position: relative;
     cursor: pointer;
   }
@@ -197,7 +205,43 @@ h1:hover {
    transform: scaleX(1);
  }
 
+ #side_dropdown_container_1 {
+   height: auto;
+   max-height: 0px;
+   height: auto;
+   display: flex;
+   overflow: hidden;
+   transition: 0.5s;
+   flex-flow: row wrap;
+   padding-left: 8vh;
+   margin-top: 1.5vh;
+   line-height: 1.6;
+ }
 
+ #side_dropdown_container_2 {
+   height: auto;
+   max-height: 0px;
+   height: auto;
+   display: flex;
+   overflow: hidden;
+   transition: 0.5s;
+   flex-flow: row wrap;
+   padding-left: 8vh;
+   margin-top: 1.5vh;
+   line-height: 1.7;
+ }
+
+ .side_drop_option {
+   flex-basis: 100%;
+   font-size: 3.5vh;
+   font-family: Helvetica;
+   color: #F7F7F7;
+   text-decoration: none;
+ }
+
+ .side_drop_option:hover {
+   text-decoration: underline;
+ }
 
 }
 
