@@ -1,52 +1,30 @@
-var test_1 = true;
-var test_2 = true;
+//Puts the html objects into arrays
+var dropDownMenuContainers = document.getElementsByClassName("dropdown_container");
+var dropDownArrows = document.getElementsByClassName("drop_arrow");
+var dropDownMenus = document.getElementsByClassName("dropMenu");
+var optionContainers = document.getElementsByClassName("optionContainer");
 
-function checkDropdown_1() {
-  if(test_1) {
-    showDropdown_1();
-  } else {
-    hideDropdown_1();
+//Gives all the menu containers the show function
+for(let i=0; i<dropDownMenus.length; i++){
+  dropDownMenuContainers[i].onclick = function(){show(i)};
+}
+
+//Function to display the menu
+function show(e){
+  //If the menu isnt already showing then it will be opened
+  if(dropDownMenus[e].style.maxHeight == "0px"){
+    for(x=0;x<dropDownMenus.length;x++){
+      dropDownMenus[x].style.maxHeight = "0px";
+      dropDownArrows[x].style.transform = "rotate(0deg)";
+    }
+    dropDownMenus[e].style.maxHeight = optionContainers[e].childElementCount*100+"px";
+    dropDownArrows[e].style.transform = "rotate(90deg)";
   }
-}
-
-function showDropdown_1() {
-    test_1 = false;
-    hideDropdown_2();
-    document.getElementById("drop_arrow_1").style.transform = "rotate(90deg)";
-    var elem = document.getElementById("menu_1");
-    elem.style.maxHeight = "200px";
-}
-
-
-function hideDropdown_1() {
-    test_1 = true;
-    document.getElementById("drop_arrow_1").style.transform = "rotate(0deg)";
-    var elem = document.getElementById("menu_1");
-    elem.style.maxHeight = "0px";
-}
-
-function checkDropdown_2() {
-  if(test_2) {
-    showDropdown_2();
-  } else {
-    hideDropdown_2();
+  //If it is already showing then it will be closed
+  else{
+    dropDownMenus[e].style.maxHeight = "0px";
+    dropDownArrows[e].style.transform = "rotate(0deg)";
   }
-}
-
-function showDropdown_2() {
-    test_2 = false;
-    hideDropdown_1();
-    document.getElementById("drop_arrow_2").style.transform = "rotate(90deg)";
-    var elem = document.getElementById("menu_2");
-    elem.style.maxHeight = "400px";
-}
-
-
-function hideDropdown_2() {
-    test_2 = true;
-    document.getElementById("drop_arrow_2").style.transform = "rotate(0deg)";
-    var elem = document.getElementById("menu_2");
-    elem.style.maxHeight = "0px";
 }
 
 function showSideMenu() {

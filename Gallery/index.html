@@ -56,33 +56,37 @@
 
     <div class="menu">
 
-      <a class="option" href="/"> Home </a>
+      <a class="option" id="active" href="index.html"> Home </a>
 
-      <div class="dropdown_container" onclick="checkDropdown_1()">
-          <div class="option" id="dropdownbtn">
-            <a id="dropdownbtn"> About </a> <div id="drop_arrow_1"> &#10095; </div>
+      <div class="dropdown_container">
+          <div class="option" >
+            <a> About </a> <div class="drop_arrow"> &#10095; </div>
           </div>
-          <div class="menu_1" id="menu_1">
-            <a class="drop_option" id="drop_option1" href="/About"> About the team </a>
-            <a class="drop_option" id="drop_option2" href="/Members"> Members </a>
+          <div class="dropMenu">
+            <div class="optionContainer">
+              <a class="drop_option" href="About/"> About the team </a>
+              <a class="drop_option" href="Members/"> Members </a>
+            </div>
           </div>
       </div>
 
-      <a class="option" href="/Documents"> Documents </a>
-      <a class="option" href="/Blog"> Blog </a>
-      <a class="option" id="active" href="/Gallery"> Gallery </a>
-      <a class="option" href="/Sponsors"> Sponsors </a>
+      <a class="option" href="Documents/"> Documents </a>
+      <a class="option" href="Blog/"> Blog </a>
+      <a class="option" href="Gallery/"> Gallery </a>
+      <a class="option" href="Sponsors/"> Sponsors </a>
 
-      <div class="dropdown_container" onclick="checkDropdown_2()">
-          <div class="option" id="dropdownbtn">
-            <a id="dropdownbtn"> Links </a> <div id="drop_arrow_2"> &#10095; </div>
+      <div class="dropdown_container">
+          <div class="option">
+            <a> Links </a> <div class="drop_arrow"> &#10095; </div>
           </div>
-          <div class="menu_2" id="menu_2">
-            <a class="drop_option" id="drop_option1" href="https://web.trondelagfylke.no/thora-storm-videregaende-skole" target="_blank"> Thora Storm </a>
-            <a class="drop_option" id="drop_optionMiddle" href="https://www.ntnu.no/" target="_blank"> NTNU </a>
-            <a class="drop_option" id="drop_optionMiddle" href="https://www.narom.no/" target="_blank"> NAROM </a>
-            <a class="drop_option" id="drop_optionMiddle" href="https://www.esa.int/ESA" target="_blank"> ESA </a>
-            <a class="drop_option" id="drop_option2" href="https://www.nasa.gov/" target="_blank"> NASA </a>
+          <div class="dropMenu">
+            <div class="optionContainer">
+              <a class="drop_option" href="https://web.trondelagfylke.no/thora-storm-videregaende-skole" target="_blank"> Thora Storm </a>
+              <a class="drop_option" href="https://www.ntnu.no/" target="_blank"> NTNU </a>
+              <a class="drop_option" href="https://www.narom.no/" target="_blank"> NAROM </a>
+              <a class="drop_option" href="https://www.esa.int/ESA" target="_blank"> ESA </a>
+              <a class="drop_option" href="https://www.nasa.gov/" target="_blank"> NASA </a>
+            </div>
           </div>
       </div>
 
