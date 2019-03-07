@@ -48,3 +48,58 @@ function hideDropdown_2() {
     var elem = document.getElementById("menu_2");
     elem.style.maxHeight = "0px";
 }
+
+var side_test_1 = true;
+
+function checkSide_1() {
+  if(side_test_1) {
+    showSide_1();
+  } else {
+    hideSide_1();
+  }
+}
+
+function showSide_1() {
+  side_test_1 = false;
+  hideSide_2();
+  document.getElementById("side_dropdown_container_1").style.maxHeight = "400px";
+}
+
+function hideSide_1() {
+  side_test_1 = true;
+  document.getElementById("side_dropdown_container_1").style.maxHeight = "0px";
+}
+
+var side_test_2 = true;
+
+function checkSide_2() {
+  if(side_test_2) {
+    showSide_2();
+  } else {
+    hideSide_2();
+  }
+}
+
+function showSide_2() {
+  side_test_2 = false;
+  hideSide_1();
+  document.getElementById("side_dropdown_container_2").style.maxHeight = "800px";
+}
+
+function hideSide_2() {
+  side_test_2 = true;
+  document.getElementById("side_dropdown_container_2").style.maxHeight = "0px";
+}
+
+function showSideMenu() {
+  document.getElementById("side_menu").style.width = "65vw";
+}
+
+function hideSideMenu() {
+  document.getElementById("side_menu").style.width = "0vw";
+}
+
+function hideSide_all() {
+  hideSide_1();
+  hideSide_2();
+}

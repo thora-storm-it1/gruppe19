@@ -131,7 +131,7 @@ h1:hover {
   }
 
   #side_menu_button:hover {
-    background-color: #D9D9D9;
+    background-color: hsla(0, 0%, 85%, 0.6);
   }
 
   #close {
@@ -228,7 +228,7 @@ h1:hover {
    flex-flow: row wrap;
    padding-left: 8vh;
    margin-top: 1.5vh;
-   line-height: 1.7;
+   line-height: 1.6;
  }
 
  .side_drop_option {
