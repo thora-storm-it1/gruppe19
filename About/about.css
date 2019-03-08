@@ -1,16 +1,4 @@
-#dropdownbtn_active {
-  text-decoration: none;
-  background-color: #F7F7F7;
-  color: #003f51;
-}
 
-.dropdown_container:hover #dropdownbtn{
-  cursor: pointer;
-}
-
-.dropdown_container:hover {
-  cursor: pointer;
-}
 
 #about {
   font-size: 2.5vh;
