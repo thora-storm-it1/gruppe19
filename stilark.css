@@ -17,7 +17,7 @@ body {
 
 .header {
   width: 100%;
-  height: 11vh;
+  height: 13vh;
   background-color: #ffdd00;
   display: flex;
   align-content: center;
@@ -30,7 +30,7 @@ body {
 #logo {
   transition: 0.2s;
   margin: 2vh;
-  width: 8vh;
+  width: 12vh;
 }
 
 #logo:hover {
@@ -40,7 +40,7 @@ body {
 
 h1 {
   font-family: Helvetica;
-  font-size: 3vh;
+  font-size: 4.5vh;
   color: #003f51;
 }
 

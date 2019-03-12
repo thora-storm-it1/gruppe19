@@ -197,7 +197,51 @@
 
       </div>
 
-      <br> <br> <br>
+      <div class="comment_section">
+
+        <h8> Comments </h8>
+
+        <br> <br> <br>
+
+        <div class="comment_container">
+
+        <?php
+
+        $sql = "SELECT *, Kommentar_forfatter.Kallenavn, Kommentar_forfatter.Profile_image, Kommentar_forfatter.Passord FROM Kommentar JOIN Kommentar_forfatter ON Kommentar.Kom_forfatter_id = Kommentar_forfatter.Kom_forfatter_id WHERE Blogg_id = $blogg_id ORDER BY Dato DESC";
+
+        $resultat = $kobling->query($sql);
+
+        while ($rad = $resultat->fetch_assoc()) {
+          $kommentar_tekst = $rad["Kommentar_tekst"];
+          $profile_img = $rad["Profile_img"];
+          $kallenavn = $rad["Kallenavn"];
+
+
+          echo "<div class='comment'>";
+
+
+          echo "<div class='profile_img'>";
+
+          echo "</div>";
+
+
+          echo "<div class='comment_text'>";
+
+          echo "</div>";
+
+
+          echo "</div>";
+
+
+        }
+
+        ?>
+
+      </div>
+
+        <div class="comment_submit">
+
+        </div>
 
     </div>
 
