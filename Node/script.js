@@ -6,7 +6,8 @@ let msgSubmit = document.getElementById("msg-submit");
 let nameInp = document.getElementById("name-inp");
 let nameSubmit = document.getElementById("name-submit");
 
-var name = "Nova";
+var name;
+var nameCheck = false;
 
 socket.on('connect',function() {
     console.log('Client has connected to the server!');
@@ -16,21 +17,31 @@ socket.on('clientConnected',function(id) {
     console.log('Client recevied ID: ' + id);
 });
 
-nameSubmit.onclick = function() {
-    name = nameInp.value;
-    console.log('Navnet ditt er satt til: ' + name);
-};
-
 function sendMsg(username, msg) {
-
-    socket.emit('sendMessage', username, msg);
-    msgInp.value = "";
-
+  if (nameCheck) {
+    if (msgInp.value != "") {
+      socket.emit('sendMessage', username, msg);
+      msgInp.value = "";
+    }
+  } else {
+    alert("Select a name first!");
+  }
 }
 
-msgSubmit.onclick = function() {
-    sendMsg(name, msgInp.value);
+nameSubmit.onclick = function() {
+    if (nameInp.value != "") {
+      name = nameInp.value;
+      nameInp.value = "";
+      nameCheck = true;
+    } else {
+      alert("Select a name first!");
+    }
 };
+
+msgSubmit.onclick = function() {
+      sendMsg(name, msgInp.value);
+};
+
 
 socket.on('message',function(username, msg) {
     console.log('Client recevied message: ' + msg);
@@ -45,3 +56,12 @@ socket.on('message',function(username, msg) {
     `;
 
 });
+
+window.addEventListener("keydown", checkKey, false);
+
+function checkKey() {
+  var x = event.keyCode;
+  if ((x == 13) && (msgInp.value != "")) {
+    sendMsg(name, msgInp.value);
+  }
+}

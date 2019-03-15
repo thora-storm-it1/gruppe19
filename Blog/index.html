@@ -4,41 +4,11 @@
   <head>
 
     <meta charset="utf-8">
-
-    <?php
-
-    if (isset($_GET["blogg_id"])) {
-      $blogg_id = $_GET["blogg_id"];
-    }
-
-    $tjener = "localhost";
-    $brukernavn = "root";
-    $passord = "root";
-    $database = "Blogg";
-
-    $kobling = new mysqli($tjener, $brukernavn, $passord, $database);
-
-    if ($kobling->connect_error) {
-      die("KVARG ER DETTE?!: " . $kobling->connect_error);
-    }
-
-    $kobling->set_charset("utf8");
-
-    $sql = "SELECT Blogg_tittel FROM Blogginnlegg WHERE Blogg_id = $blogg_id";
-    $resultat = $kobling->query($sql);
-
-    while($rad = $resultat->fetch_assoc()) {
-      $tittel = $rad["Blogg_tittel"];
-
-      echo "<title> Team NovaDomus | $tittel </title>";
-    }
-
-    ?>
-
+    <title> Team NovaDomus | Blog </title>
     <link rel="stylesheet" href="/stilark.css">
-    <link rel="stylesheet" href="blogg_innlegg.css">
+    <link rel="stylesheet" href="blogg.css">
     <link rel="icon" href="/Bilder/logo.png">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 
   </head>
 
@@ -126,128 +96,22 @@
 
     <div class="bakgrunn">
 
-      <div class="blogg_innlegg">
+      <div id="blog_container">
 
-        <?php
+        <div id="blog_post_container">
 
-        $sql = "SELECT *, Innlegg_forfatter.Fornavn, Innlegg_forfatter.Etternavn FROM Blogginnlegg JOIN Innlegg_forfatter ON
-        Blogginnlegg.Inn_forfatter_id = Innlegg_forfatter.Inn_forfatter_id WHERE Blogg_id = $blogg_id ORDER BY Dato DESC";
+        </div>
 
-        $resultat = $kobling->query($sql);
 
-        while($rad = $resultat->fetch_assoc()) {
-          $tittel = $rad["Blogg_tittel"];
-          $intro = $rad["Blogg_intro"];
-          $tekst = $rad["Blogg_tekst"];
-          $image_1 = $rad["Image_1"];
-          $image_2 = $rad["Image_2"];
-          $image_3 = $rad["Image_3"];
-          $image_4 = $rad["Image_4"];
-          $dato = $rad["Dato"];
-          $fornavn = $rad["Fornavn"];
-          $etternavn = $rad["Etternavn"];
+        <div id="blog_archive">
 
-          echo "<div class='blog_container'>";
+          <h3> Blog Archive </h3>
 
-          echo "<div id='blog_tekst'";
+          <br> <br>
 
-          echo "<br> <br>";
-          echo "<h7> $tittel </h7>";
-          echo "<br> <br> <br> <br>";
-
-          echo "<div class='blog_avsnitt'> $intro </div>";
-
-          echo "<div class='blog_avsnitt'> $tekst </div>";
-
-          echo "</div>";
-
-          echo "<div id='blog_img_container'>";
-          echo "<br> <br>";
-
-          echo "<div id='blog_img_frame'> <img id='blog_img' src='$image_1'> </div>";
-          echo "<br>";
-
-          if ($image_2){
-            echo "<div id='blog_img_frame'> <img id='blog_img' src='$image_2'> </div>";
-            echo "<br>";
-          }
-
-          if ($image_3){
-            echo "<div id='blog_img_frame'> <img id='blog_img' src='$image_3'> </div>";
-            echo "<br>";
-          }
-
-          if ($image_4){
-            echo "<div id='blog_img_frame'> <img id='blog_img' src='$image_4'> </div>";
-            echo "<br>";
-          }
-
-          echo "</div>";
-
-          echo "</div>";
-
-          echo "<br> <br> <br>";
-          echo "<p class='blogg_info'> Written $dato by $fornavn $etternavn </p> ";
-          echo "<br> <br> <br>";
-        }
-
-        ?>
-
-        <a id="tilbake" href="/Blog"> &#10094; Go back </a>
+        </div>
 
       </div>
-
-      <div class="comment_section">
-
-        <h8> Comments </h8>
-
-        <br> <br> <br>
-
-        <div class="comment_container">
-
-        <?php
-
-        $sql = "SELECT *, Kommentar_forfatter.Kallenavn, Kommentar_forfatter.Profile_image, Kommentar_forfatter.Passord FROM Kommentar JOIN Kommentar_forfatter ON Kommentar.Kom_forfatter_id = Kommentar_forfatter.Kom_forfatter_id WHERE Blogg_id = $blogg_id ORDER BY Dato DESC";
-
-        $resultat = $kobling->query($sql);
-
-        while ($rad = $resultat->fetch_assoc()) {
-          $kommentar_tekst = $rad["Kommentar_tekst"];
-          $profile_img = $rad["Profile_image"];
-          $kallenavn = $rad["Kallenavn"];
-          $dato = $rad["Dato"];
-
-
-          echo "<div class='comment'>";
-
-
-          echo "<div class='profile_img_container'>";
-          echo "<img class='profile_img' src='$profile_img'>";
-          echo "</div>";
-
-
-          echo "<div class='comment_content_container'>";
-
-          echo "<div class='comment_title'> $kallenavn $dato </div>";
-          echo "<div class='comment_text'> $kommentar_tekst </div>";
-
-          echo "</div>";
-
-
-          echo "</div>";
-
-
-        }
-
-        ?>
-
-      </div>
-
-
-      <div class="comment_submit">
-
-      </div>
-
 
     </div>
 
@@ -284,7 +148,9 @@
 
 </div>
 
-<script src="script.js">  </script>
+<script src="client.js">  </script>
+
+<script src="script.js"> </script>
 
   </body>
 

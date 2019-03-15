@@ -1,7 +1,6 @@
 body {
   margin: 0px;
   background-color: #262121;
-  user-select: none;
 }
 
 .page_container {
@@ -60,6 +59,7 @@ h1:hover {
     align-content: center;
     top: 0px;
     z-index: 1;
+    user-select: none;
   }
 
   .bakgrunn {
@@ -111,6 +111,7 @@ h1:hover {
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
+    user-select: none;
   }
 
   #side_menu_button {
@@ -376,6 +377,7 @@ h1:hover {
   align-content: center;
   justify-content: center;
   margin: 3.5vw 0px 3.5vw 0px;
+  user-select: none;
 }
 
 /*Container of only the slides*/
@@ -384,6 +386,7 @@ h1:hover {
   height: 100%;
   position: relative;
   margin: auto;
+  user-select: none;
 }
 
 /* Sets all slides to be invisible */

@@ -86,10 +86,10 @@ bold {
 
 .comment_section {
   width: 80%;
-  height: 60vh;
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10vh;
 }
 
 h8 {
@@ -103,11 +103,44 @@ h8 {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-bottom: 1px solid #9E9E9E;
 }
 
 .comment {
   display: flex;
   flex-direction: row nowrap;
   width: 100%;
-  background-color: red;
+  border-top: 1px solid #9E9E9E;
+}
+
+.profile_img_container {
+  flex-basis: 10%;
+  min-width: 10%;
+  margin: 1vw;
+}
+
+.profile_img {
+  width: 100%;
+  height: auto;
+}
+
+.comment_content_container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1vw 2vw 1vw 0vw;
+}
+
+.comment_title {
+  font-family: Helvetica;
+  color: #2D2D2D;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.comment_text {
+  margin-top: 1vh;
+  font-family: Helvetica;
+  color: #585858;
+  font-size: 2vh;
 }
