@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title> Team NovaDomus | Gallery </title>
     <link rel="stylesheet" href="/stilark.css">
-    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="/Gallery/gallery.css">
     <link rel="icon" href="/Bilder/logo.png">
 
 
@@ -96,7 +96,36 @@
 
     <div class="bakgrunn">
 
+      <div class="gallery">
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery1.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery2.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery3.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery4.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery5.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery6.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery7.jpg"></img>
+        <img class="galleryThumbnail" src="/Gallery/galleryArchive/gallery8.jpg"></img>
+      </div>
 
+        <div class="galleryContainer" id="galleryContainer">
+          <div class="pageCover" id="pageCover"></div>
+          <div class="imageContainer" id="imageContainer">
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery1.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery2.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery3.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery4.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery5.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery6.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery7.jpg"></img>
+            <img class="galleryPicture" src="/Gallery/galleryArchive/gallery8.jpg"></img>
+
+            <div class="galleryNext" onclick="showGallery(galleryIndex+1)"><div class="arrow">&#10095;</div></div>
+            <div class="galleryPrev" onclick="showGallery(galleryIndex-1)"><div class="arrow">&#10094;</div></div>
+            <div class="closeX arrow" id="closeX">✖</div>
+          </div>
+        </div>
+      </div>
+      <script src="gallery.js"></script>
     </div>
 
     <div class="footer">
