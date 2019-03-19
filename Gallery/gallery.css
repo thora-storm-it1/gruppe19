@@ -11,28 +11,35 @@
 
 .gallery{
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: 0%;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 1%;
+  justify-content: flex-start;
+  padding-top: 5vw;
   user-select: none;
 }
 
 .galleryThumbnail{
-  width: 16em;
-  height: 12em;
-  margin: 1%;
+  width: auto;
+  height: 15vw;
   box-sizing: border-box;
   cursor: pointer;
+  padding: 1%;
   object-fit: cover;
-  box-shadow: 0.5rem 0.5rem 0.5rem #4a4a4a;
 }
 
 .galleryPicture{
-  max-height: 30rem;
-  min-height: 20rem;
-  width: auto;
+  max-width: 80vw;
+  min-width: 30vw;
+  max-height: 80vh;
+  min-height: 30vw;
+  transition: 1s;
+  position: absolute;
+  background-color: #f7f7f7;
+  padding: 1%;
 }
+
 .galleryContainer{
   width: 100vw;
   height: 100vh;
@@ -46,12 +53,13 @@
   z-index: 10;
 }
 .imageContainer{
-  transition: width 10s;
-  transition: height 10s;
-  position: inherit;
+  transition: scale 1s;
+  position: relative;
+  left: auto;
   z-index: 11;
-  background-color: #F7F7F7;
-  padding: 0.4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .galleryNext{
@@ -67,6 +75,7 @@
   opacity: 0;
   transition: opacity 1s;
   cursor: pointer;
+  z-index: 13;
 }
 
 .galleryNext:hover{
@@ -86,6 +95,7 @@
   transition: opacity 1s;
   opacity: 0;
   cursor: pointer;
+  z-index: 13;
 }
 
 .galleryPrev:hover{
@@ -104,6 +114,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 13;
 }
 
 .closeX{
@@ -112,4 +123,38 @@
   right: -1rem;
   margin: 0%;
   cursor: pointer;
+}
+
+@keyframes arrows{
+  100% {opacity: 1}
+  0% {opacity: 0}
+}
+
+.arrows{
+  opacity: 0;
+}
+
+@keyframes dots{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.dots{
+  animation: dots 0.5s;
+  -webkit-animation: dots 0.5s;
+  transition: opacity 1s;
+}
+
+.dots:hover{
+  opacity: 1;
+}
+
+@media only screen and (max-aspect-ratio: 1/1){
+  .galleryThumbnail{
+    width: 100%;
+    height: 65vw;
+  }
+  .gallery{
+    padding-top: 10vw;
+  }
 }
