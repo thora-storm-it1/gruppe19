@@ -136,3 +136,7 @@ function hideSide_all() {
   hideSide_1();
   hideSide_2();
 }
+
+var html = document.documentElement;
+
+var footer = document.getElementsByClassName("foot3");

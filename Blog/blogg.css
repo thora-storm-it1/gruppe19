@@ -56,7 +56,6 @@ h3 {
 .blogg_tekst {
   flex-basis: 70%;
   margin-right: 2%;
-  max-height: 150px;
   overflow: auto;
   font-family: Helvetica;
   font-size: 14px;
@@ -70,7 +69,7 @@ h3 {
 
 #blog_img {
   width: auto;
-  max-height: 150px;
+  max-height: 20vh;
 }
 
 .blogg_dato {

@@ -149,7 +149,7 @@
 
           echo "<div class='blog_container'>";
 
-          echo "<div id='blog_tekst'";
+          echo "<div id='blog_tekst'>";
 
           echo "<br> <br>";
           echo "<h7> $tittel </h7>";
@@ -197,6 +197,66 @@
 
       </div>
 
+      <?php
+
+      if (isset($_GET["blogg_id"])) {
+        $blogg_id = $_GET["blogg_id"];
+      }
+
+      $login = false;
+      $date = date("Y.m.d");
+      $time = date("h:i");
+
+      if(isset($_POST["submit"])) {
+
+        $comment = $_POST["comment"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        $sql_2 = "SELECT * FROM Kommentar_forfatter";
+
+        $resultat = $kobling->query($sql_2);
+
+        while($rad = $resultat->fetch_assoc()) {
+          $username_check = $rad["Kallenavn"];
+          $password_check = $rad["Passord"];
+          $user_id_check = $rad["Kom_forfatter_id"];
+
+          if(($username_check == $username) && ($password_check == $password)) {
+            $login = true;
+            $user_id = $user_id_check;
+            break;
+          }
+
+        }
+
+        if($login) {
+
+          $sql = "INSERT INTO Kommentar (Kommentar_tekst, Dato, Blogg_id, Kom_forfatter_id) VALUES ('$comment', '$date', '$blogg_id', '$user_id')";
+
+          if($kobling->query($sql)) {
+            $login = false;
+            header('Location: .');
+          } else {
+            $login = false;
+            header('Location: .');
+          }
+
+        } else {
+          echo "<script> alert('Login failed. Did you type in the correct password?') </script>";
+        }
+
+      }
+
+      ?>
+
+      <script>
+        //thank you god. I promise never to use PHP again
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+      </script>
+
       <div class="comment_section">
 
         <h8> Comments </h8>
@@ -207,7 +267,7 @@
 
         <?php
 
-        $sql = "SELECT *, Kommentar_forfatter.Kallenavn, Kommentar_forfatter.Profile_image, Kommentar_forfatter.Passord FROM Kommentar JOIN Kommentar_forfatter ON Kommentar.Kom_forfatter_id = Kommentar_forfatter.Kom_forfatter_id WHERE Blogg_id = $blogg_id ORDER BY Dato DESC";
+        $sql = "SELECT *, Kommentar_forfatter.Kallenavn, Kommentar_forfatter.Profile_image, Kommentar_forfatter.Passord FROM Kommentar JOIN Kommentar_forfatter ON Kommentar.Kom_forfatter_id = Kommentar_forfatter.Kom_forfatter_id WHERE Blogg_id = $blogg_id ORDER BY Kommentar_id DESC";
 
         $resultat = $kobling->query($sql);
 
@@ -244,7 +304,44 @@
       </div>
 
 
-      <div class="comment_submit">
+      <div class="comment_submit_container">
+
+          <h9> Write a comment </h9>
+
+
+          <form id="writeComment" method="post">
+
+            <div class="comment_submit">
+
+              <div class="comment_input">
+
+                <textarea id="comment_text" name="comment" placeholder="Write a comment..." rows="12" cols="60" maxlength="256"></textarea>
+
+              </div>
+
+              <div class="comment_login">
+
+                <input class="login" name="username" type="text" placeholder="Username...">
+
+                <input class="login" name="password" type="password" placeholder="Password...">
+
+                <?php
+
+                if (isset($_GET["blogg_id"])) {
+                  $blogg_id = $_GET["blogg_id"];
+                }
+
+                echo "<div id='new_user_container'> <a id='new_user' href='/Register?blogg_id=$blogg_id'> Register new user </a> </div>";
+
+                ?>
+
+                <div id="submit_container"> <input type="submit" id="submit" name="submit" value="Submit"> </div>
+
+              </div>
+
+            </div>
+
+          </form>
 
       </div>
 
@@ -284,7 +381,7 @@
 
 </div>
 
-<script src="script.js">  </script>
+<script src="/script.js">  </script>
 
   </body>
 

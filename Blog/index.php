@@ -142,7 +142,7 @@
 
             echo "<div class='blogg_innlegg'>";
 
-            echo "<a id='tittel' href='/Blog_post?blogg_id=$blogg_id'> $tittel </a>";
+            echo "<div class='titel_conatiner'> <a id='tittel' href='/Blog_post?blogg_id=$blogg_id'> $tittel </a> </div>";
             echo "<p class='blogg_dato'> $dato </p>";
             echo "<br>";
             echo "<div class='blogg_preview'> <div class='blogg_tekst'> $intro </div> <div id='blog_img_container'> <img id='blog_img' src='$image'> </div> </div>";
@@ -227,7 +227,7 @@
 
 </div>
 
-<script src="script.js">  </script>
+<script src="/script.js"> </script>
 
   </body>
 
