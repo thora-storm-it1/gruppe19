@@ -48,8 +48,6 @@
 
     <div class="content_container">
 
-      <script> showSlides(1) </script>
-
       <div class="header">
         <img id="logo" src="Bilder/logo.png" onclick="location.href = 'index.html'"> <h1 onclick="location.href = 'index.html'"> Team NovaDomus </h1>
       </div>
@@ -105,14 +103,16 @@
           <div class="slideContainer">
 
             <?php
-              $directory = "./galleryArchive/";
+              $directory = "./Bilder/Slideshow/";
               $filecount = 0;
               $files = scandir($directory);
               if ($files){
                 $filecount = count($files)-2;
               }
               for($i=1; $i<$filecount+1; $i++){
-                echo"<div class='slides'><img class='galleryPicture' src='/Bilder/Slideshow/".$files[$i+1]."'></img></div>";
+                if($files[$i+1]!=".DS_Store"){
+                  echo"<div class='slides'><img class='galleryPicture' src='/Bilder/Slideshow/".$files[$i+1]."'></img></div>";
+                }
               }
             ?>
 
@@ -170,3 +170,4 @@
 </html>
 
 <script src="/script.js">  </script>
+<script> showSlides(1); </script>

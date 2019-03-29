@@ -125,7 +125,9 @@
             $filecount = count($files)-2;
           }
           for($i=1; $i<$filecount+1; $i++){
-            echo"<img class='galleryThumbnail' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+            if($files[$i+1]!=".DS_Store"){
+              echo"<img class='galleryThumbnail' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+            }
           }
         ?>
       </div>
@@ -141,7 +143,9 @@
                 $filecount = count($files)-2;
               }
               for($i=1; $i<$filecount+1; $i++){
-                echo"<img class='galleryPicture' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+                if($files[$i+1]!=".DS_Store"){
+                  echo"<img class='galleryPicture' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+                }
               }
             ?>
             <div class="galleryNext" id="galleryNext"><div class="arrow">&#10095;</div></div>
