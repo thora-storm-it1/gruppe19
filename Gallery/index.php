@@ -117,24 +117,33 @@
       </div>
 
       <div class="gallery">
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/background.jpg"></img>
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/cansat.jpg"></img>
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/logo_ny.png"></img>
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/narom.png"></img>
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/seb.jpg"></img>
-        <img class="galleryThumbnail" src="/Gallery/galleryArchive/trondelag.png"></img>
+        <?php
+          $directory = "./galleryArchive/";
+          $filecount = 0;
+          $files = scandir($directory);
+          if ($files){
+            $filecount = count($files)-2;
+          }
+          for($i=1; $i<$filecount+1; $i++){
+            echo"<img class='galleryThumbnail' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+          }
+        ?>
       </div>
 
         <div class="galleryContainer" id="galleryContainer">
           <div class="pageCover" id="pageCover"></div>
           <div class="imageContainer" id="imageContainer">
-            <img class="galleryPicture" src="/Gallery/galleryArchive/background.jpg"></img>
-            <img class="galleryPicture" src="/Gallery/galleryArchive/cansat.jpg"></img>
-            <img class="galleryPicture" src="/Gallery/galleryArchive/logo_ny.png"></img>
-            <img class="galleryPicture" src="/Gallery/galleryArchive/narom.png"></img>
-            <img class="galleryPicture" src="/Gallery/galleryArchive/seb.jpg"></img>
-            <img class="galleryPicture" src="/Gallery/galleryArchive/trondelag.png"></img>
-
+            <?php
+              $directory = "./galleryArchive/";
+              $filecount = 0;
+              $files = scandir($directory);
+              if ($files){
+                $filecount = count($files)-2;
+              }
+              for($i=1; $i<$filecount+1; $i++){
+                echo"<img class='galleryPicture' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
+              }
+            ?>
             <div class="galleryNext" id="galleryNext"><div class="arrow">&#10095;</div></div>
             <div class="galleryPrev" id="galleryPrev"><div class="arrow">&#10094;</div></div>
             <div class="closeX arrow" id="closeX">✖</div>
