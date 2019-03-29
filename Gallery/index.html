@@ -94,7 +94,27 @@
       &#9776;
     </div>
 
-    <div class="bakgrunn">
+    <div class="background">
+
+      <div class="galleryInfoContainer">
+
+        <div class="galleryLogo">
+
+          <img id="galleryLogo" src="/Bilder/logo.png">
+
+        </div>
+
+        <div class="galleryInfo">
+
+          <h11> Gallery </h11>
+
+          <div id="postsContainer"> <div id="postNum"> </div> posts </div>
+
+          <p id="postText"> This is the Gallery. Here you can find a collection of pictures from the preparation of the team <b> NovaDomus </b>. We are doing our best to upload new pictures, but if you want to see the latest pictures we recommend that you head over to our Instagram or FaceBook. </p>
+
+        </div>
+
+      </div>
 
       <div class="gallery">
         <img class="galleryThumbnail" src="/Gallery/galleryArchive/background.jpg"></img>
@@ -115,8 +135,8 @@
             <img class="galleryPicture" src="/Gallery/galleryArchive/seb.jpg"></img>
             <img class="galleryPicture" src="/Gallery/galleryArchive/trondelag.png"></img>
 
-            <div class="galleryNext" onclick="showGallery(galleryIndex+1)"><div class="arrow">&#10095;</div></div>
-            <div class="galleryPrev" onclick="showGallery(galleryIndex-1)"><div class="arrow">&#10094;</div></div>
+            <div class="galleryNext" id="galleryNext"><div class="arrow">&#10095;</div></div>
+            <div class="galleryPrev" id="galleryPrev"><div class="arrow">&#10094;</div></div>
             <div class="closeX arrow" id="closeX">✖</div>
           </div>
         </div>
