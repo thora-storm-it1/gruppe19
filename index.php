@@ -104,22 +104,17 @@
 
           <div class="slideContainer">
 
-
-            <div class="slides start">
-              <img src="Bilder/thorastorm.png" style="width:100%">
-            </div>
-
-            <div class="slides">
-              <img src="Bilder/ntnu.png" style="width:100%">
-            </div>
-
-            <div class="slides">
-              <img src="Bilder/gruppe_1.png" style="width:100%">
-            </div>
-
-            <div class="slides">
-              <img src="Bilder/cansat.jpg" style="width:100%">
-            </div>
+            <?php
+              $directory = "./galleryArchive/";
+              $filecount = 0;
+              $files = scandir($directory);
+              if ($files){
+                $filecount = count($files)-2;
+              }
+              for($i=1; $i<$filecount+1; $i++){
+                echo"<div class='slides'><img class='galleryPicture' src='/Bilder/Slideshow/".$files[$i+1]."'></img></div>";
+              }
+            ?>
 
             <div class="next" onclick="plusSlides(1)">&#10095;</div>
             <div class="previous" onclick="plusSlides(-1)">&#10094;</div>
@@ -148,10 +143,10 @@
             <h2> Contact </h2>
 
             <div id="links">
-            <a class="kontakt" href="https://www.instagram.com/teamnovadomus/" target="_blank"> <img class="insta" src="Bilder/insta.png" alt="insta"> </a>
-            <a class="kontakt" href="https://discord.gg/pwGcZJ3" target="_blank"> <img class="twitter" src="Bilder/discord.png" alt="twitter"> </a>
-            <a class="kontakt" href="https://www.youtube.com/channel/UCpR4UZgsC1166SOaRYKC_8g" target="_blank"> <img class="tube" src="Bilder/tube.png" alt="tube"> </a>
-            <a class="kontakt" href="#"> <img class="face" src="Bilder/face.png" alt="face"> </a>
+            <a class="kontakt" href="https://www.instagram.com/teamnovadomus/" target="_blank"> <img class="insta" src="Bilder/Icons/insta.png" alt="insta"> </a>
+            <a class="kontakt" href="https://discord.gg/pwGcZJ3" target="_blank"> <img class="twitter" src="Bilder/Icons/discord.png" alt="twitter"> </a>
+            <a class="kontakt" href="https://www.youtube.com/channel/UCpR4UZgsC1166SOaRYKC_8g" target="_blank"> <img class="tube" src="Bilder/Icons/tube.png" alt="tube"> </a>
+            <a class="kontakt" href="#"> <img class="face" src="Bilder/Icons/face.png" alt="face"> </a>
             </div>
 
 
