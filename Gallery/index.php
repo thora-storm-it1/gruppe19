@@ -136,7 +136,7 @@
           <div class="pageCover" id="pageCover"></div>
           <div class="imageContainer" id="imageContainer">
             <?php
-              $directory = "./galleryArchive/";
+            /*  $directory = "./galleryArchive/";
               $filecount = 0;
               $files = scandir($directory);
               if ($files){
@@ -146,8 +146,15 @@
                 if($files[$i+1]!=".DS_Store"){
                   echo"<img class='galleryPicture' src='/Gallery/galleryArchive/".$files[$i+1]."'></img>";
                 }
-              }
+              } */
             ?>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/gruppe_1.png'></img>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/IMG_0115.JPG'></img>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/IMG_0172.JPG'></img>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/IMG_0175.JPG'></img>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/logo.png'></img>
+            <img class='galleryPicture' src='/Gallery/galleryArchive/Patch.png'></img>
+
             <div class="galleryNext" id="galleryNext"><div class="arrow">&#10095;</div></div>
             <div class="galleryPrev" id="galleryPrev"><div class="arrow">&#10094;</div></div>
             <div class="closeX arrow" id="closeX">✖</div>

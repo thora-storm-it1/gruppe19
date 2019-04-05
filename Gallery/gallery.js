@@ -7,7 +7,7 @@ var next = document.getElementsByClassName("galleryNext")[0];
 var prev = document.getElementsByClassName("galleryPrev")[0];
 var imageContainer = document.getElementById("imageContainer");
 var posts = document.getElementById("postNum");
-var galleryIndex;
+var galleryIndex = -1;
 
 posts.innerHTML = "<b>" + thumbnails.length + "</b>";
 
@@ -50,4 +50,20 @@ function showGallery(id){
 
 function closeGallery(){
   container.style.display = "none";
+}
+
+window.addEventListener("keydown", checkKey, false);
+
+function checkKey() {
+  var x = event.keyCode;
+
+ switch (x) {
+  case 37:
+    showGallery(galleryIndex-1);
+    break;
+
+  case 39:
+    showGallery(galleryIndex+1);
+    break;
+ }
 }
